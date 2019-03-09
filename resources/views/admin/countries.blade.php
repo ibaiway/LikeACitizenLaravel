@@ -14,12 +14,12 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-        <table id="example1" class="table table-bordered table-striped">
+        <table id="countryTable" class="table table-bordered table-striped">
           <thead>
           <tr>
-            <th>Rendering engine</th>
-            <th>Browser</th>
-            <th>Platform(s)</th>
+            <th>Name</th>
+            <th>Flag</th>
+            <th>Cities</th>
             <th>Engine version</th>
             <th>CSS grade</th>
           </tr>
@@ -457,7 +457,7 @@
 <script src="{{asset('adminlte/components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
   $(function () {
-    $('#example1').DataTable()
+    $('#countryTable').DataTable()
   })
 </script>
 
