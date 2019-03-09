@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>AdminLTE 2 | Starter</title>
+  <title>LAC @yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{asset('adminlte/components/bootstrap/dist/css/bootstrap.min.css')}}">
@@ -64,9 +64,9 @@ desired effect
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>L</b>AC</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Like</b>ACitizen</span>
     </a>
 
     <!-- Header Navbar -->
@@ -261,8 +261,10 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Countries</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Cities</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Apps</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
