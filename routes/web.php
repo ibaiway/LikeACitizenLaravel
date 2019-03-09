@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//  Admin Routes
+Route::name('admin.')->namespace('Admin')->middleware(['first', 'second'])->group(function () {
+    Route::get('dashboard', function () {
+        // Route assigned name "admin.dashboard"...
+    })->name('dashboard');
+});
