@@ -264,7 +264,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('admin.dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
+        <li><a href="{{ route('admin.countries.index') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Cities</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Apps</span></a></li>
         <li class="treeview">
