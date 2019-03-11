@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Country;
 use App\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CountryController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return view('admin/countries');
+        return view('admin/languages');
     }
 
     /**
@@ -26,9 +25,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-      $languages = Language::all();
-
-        return view('admin/addCountry', compact('languages'));
+        return view('admin/addLanguage');
     }
 
     /**
@@ -39,34 +36,34 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        $country = new Country;
-        $country->name = $request->input('name');
-        $country->flag = $request->file('flag')->store('countries/flags');
-        $country->save();
-        $country->languages()->attach($request->input('languages'));
+        $language = new Language;
+        $language->name = $request->input('name');
+        $language->promoLink = $request->input('promoLink');
+        $language->save();
 
-
-        return redirect()->route('admin.countries.show', [$country]);
+        return redirect()->route('admin.languages.show', [$language]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Country  $country
+     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function show(Country $country)
+    public function show($id)
     {
-        //
+        $language = Language::find($id);
+
+        return view('admin/language', compact('language'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Country  $country
+     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function edit(Country $country)
+    public function edit(Language $language)
     {
         //
     }
@@ -75,10 +72,10 @@ class CountryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Country  $country
+     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Country $country)
+    public function update(Request $request, Language $language)
     {
         //
     }
@@ -86,11 +83,14 @@ class CountryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Country  $country
+     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Country $country)
+    public function destroy($id)
     {
-        //
+      $language = Language::find($id);
+      $language->delete();
+
+      return redirect('/admin/countries');
     }
 }

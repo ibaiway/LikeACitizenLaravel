@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::name('admin.')->prefix('admin')->namespace('Admin')->middleware(['checkAdmin'])->group(function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('countries', 'CountryController');
+    Route::resource('languages', 'LanguageController');
 });

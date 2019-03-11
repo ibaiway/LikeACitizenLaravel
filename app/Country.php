@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
+public $table = "countries";
   public function citys()
   {
       return $this->hasMany('App\City');

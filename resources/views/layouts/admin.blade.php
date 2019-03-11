@@ -267,6 +267,7 @@ desired effect
         <li><a href="{{ route('admin.countries.index') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Cities</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Apps</span></a></li>
+        <li><a href="{{ route('admin.languages.index') }}"><i class="fa fa-link"></i> <span>Languages</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">

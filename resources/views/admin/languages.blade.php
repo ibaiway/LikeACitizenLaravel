@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Countries')
+@section('title', 'Languages')
 @section('css')
 <link rel="stylesheet" href="{{asset('adminlte/components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
@@ -14,12 +14,12 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-        <table id="countryTable" class="table table-bordered table-striped">
+        <table id="languageTable" class="table table-bordered table-striped">
           <thead>
           <tr>
             <th>Name</th>
-            <th>Flag</th>
-            <th>Cities</th>
+            <th>Countries</th>
+            <th>PromoLink</th>
             <th>Engine version</th>
             <th>CSS grade</th>
           </tr>
@@ -457,7 +457,7 @@
 <script src="{{asset('adminlte/components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
   $(function () {
-    $('#countryTable').DataTable()
+    $('#languageTable').DataTable()
   })
 </script>
 

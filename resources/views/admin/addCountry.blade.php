@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Dashboard')
+@section('title', 'Add Country')
 @section('css')
 <link rel="stylesheet" href="{{asset('adminlte/components/select2/dist/css/select2.min.css')}}">
 
@@ -16,25 +16,21 @@
     </div>
   </div>
   <!-- /.box-header -->
+  <form method="POST" action="{{ route('admin.countries.store') }}" enctype="multipart/form-data">
+    @csrf
   <div class="box-body">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" placeholder="Enter a name">
+          <input type="text" name="name" class="form-control" placeholder="Enter a name">
         </div>
         <!-- /.form-group -->
         <div class="form-group">
-          <label>Disabled</label>
-          <select class="form-control select2" disabled="disabled" style="width: 100%;">
-            <option selected="selected">Alabama</option>
-            <option>Alaska</option>
-            <option>California</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
-          </select>
+          <label for="exampleInputFile">Flag</label>
+          <input type="file" name="flag">
+
+          <p class="help-block">Example block-level help text here.</p>
         </div>
         <!-- /.form-group -->
       </div>
@@ -42,28 +38,11 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Language</label>
-          <select class="form-control select2" multiple="multiple" data-placeholder="Select a language"
+          <select class="form-control select2" name="languages[]" multiple="multiple" data-placeholder="Select a language"
                   style="width: 100%;">
-            <option>Alabama</option>
-            <option>Alaska</option>
-            <option>California</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
-          </select>
-        </div>
-        <!-- /.form-group -->
-        <div class="form-group">
-          <label>Disabled Result</label>
-          <select class="form-control select2" style="width: 100%;">
-            <option selected="selected">Alabama</option>
-            <option>Alaska</option>
-            <option disabled="disabled">California (disabled)</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+            @foreach ($languages as $language)
+              <option value="{{ $language->id }}">{{ $language->name }}</option>
+            @endforeach
           </select>
         </div>
         <!-- /.form-group -->
@@ -74,11 +53,10 @@
   </div>
   <!-- /.box-body -->
   <div class="box-footer">
-    Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
-    the plugin.
+    <button type="submit" class="btn btn-primary pull-right">Add</button>
   </div>
 </div>
-
+</form>
 @endsection
 @section('script')
 <script src="{{asset('adminlte/components/select2/dist/js/select2.full.min.js')}}"></script>

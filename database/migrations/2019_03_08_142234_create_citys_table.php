@@ -16,10 +16,11 @@ class CreateCitysTable extends Migration
         Schema::create('citys', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("name");
+            $table->string("headerImage");
             $table->boolean("public");
             $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')->references('id')
-            ->on('countrys')
+            ->on('countries')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Language extends Model
 {
-  public function countrys()
+  public function countries()
   {
       return $this->belongsToMany('App\Country');
   }
