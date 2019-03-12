@@ -18,30 +18,30 @@
           <thead>
           <tr>
             <th>Name</th>
+            <th>Countries</th>
             <th>Countries Official</th>
             <th>Countries Co-Offical</th>
             <th>PromoLink</th>
-            <th>CSS grade</th>
           </tr>
           </thead>
           <tbody>
             @foreach ($languages as $language)
               <tr>
-                <td>{{ $language->name }}</td>
+                <td><a href="{{ route('admin.languages.show', ['id' => $language->id ]) }}">{{ $language->name }}</a></td>
                 <td>{{ $language->countries()->count() }}</td>
-                <td>{{ $language->countries()->with('official')->count() }}</td>
+                <td>{{ $language->countries()->whereOfficial(true)->count() }}</td>
+                <td>{{ $language->countries()->whereCoofficial(true)->count() }}</td>
                 <td>{{ $language->promoLink }}</td>
-                <td>X</td>
               </tr>
             @endforeach
           </tbody>
           <tfoot>
           <tr>
             <th>Name</th>
+            <th>Countries</th>
             <th>Countries Official</th>
             <th>Countries Co-Offical</th>
             <th>PromoLink</th>
-            <th>CSS grade</th>
           </tr>
           </tfoot>
         </table>
@@ -58,9 +58,9 @@
 <script src="{{asset('adminlte/components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('adminlte/components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
-  $(function () {
-    $('#languageTable').DataTable()
-  })
+$(function () {
+  $('#languageTable').DataTable()
+})
 </script>
 
 @endsection

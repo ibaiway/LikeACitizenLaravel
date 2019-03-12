@@ -319,7 +319,7 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ now()->year }} <a href="#">LikeACitizen</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

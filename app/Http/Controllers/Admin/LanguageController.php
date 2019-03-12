@@ -53,7 +53,7 @@ class LanguageController extends Controller
      */
     public function show($id)
     {
-        $language = Language::find($id);
+        $language = Language::findorfail($id);
 
         return view('admin/language', compact('language'));
     }
