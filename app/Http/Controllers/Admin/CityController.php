@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\City;
+use App\Country;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+      $cities = City::all();
+        return view('admin/cities', compact('cities'));
     }
 
     /**
@@ -25,7 +27,9 @@ class CityController extends Controller
      */
     public function create()
     {
-        //
+      $countries = Country::all();
+
+        return view('admin/addCity', compact('countries'));
     }
 
     /**
@@ -36,7 +40,15 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $city = new City;
+      $city->name = $request->input('name');
+      $city->headerImage = $request->file('headerImage')->store('cities/headerImage');
+      $city->save();
+      $country = Country::find($request->input('country'));
+      $post->comments()->save($comment);
+
+
+      return redirect()->route('admin.countries.show', [$country]);
     }
 
     /**

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Add Country')
+@section('title', 'Add City')
 @section('css')
 <link rel="stylesheet" href="{{asset('adminlte/components/select2/dist/css/select2.min.css')}}">
 
@@ -16,7 +16,7 @@
     </div>
   </div>
   <!-- /.box-header -->
-  <form method="POST" action="{{ route('admin.countries.store') }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('admin.cities.store') }}" enctype="multipart/form-data">
     @csrf
   <div class="box-body">
     <div class="row">
@@ -27,8 +27,8 @@
         </div>
         <!-- /.form-group -->
         <div class="form-group">
-          <label for="exampleInputFile">Flag</label>
-          <input type="file" name="flag">
+          <label for="exampleInputFile">Header Image</label>
+          <input type="file" name="headerImage">
 
           <p class="help-block">Example block-level help text here.</p>
         </div>
@@ -37,25 +37,19 @@
       <!-- /.col -->
       <div class="col-md-6">
         <div class="form-group">
-          <label>Language Official</label>
-          <select class="form-control select2" name="languagesOffical[]" multiple="multiple" data-placeholder="Select a language"
+          <label>Country</label>
+          <select class="form-control select2" name="countries[]" multiple="multiple" data-placeholder="Select a Country"
                   style="width: 100%;">
-            @foreach ($languages as $language)
-              <option value="{{ $language->id }}">{{ $language->name }}</option>
+            @foreach ($countries as $country)
+              <option value="{{ $country->id }}">{{ $country->name }}</option>
             @endforeach
           </select>
         </div>
-        <!-- /.form-group -->
-        <div class="form-group">
-          <label>Language Co-Official</label>
-          <select class="form-control select2" name="languagesCoOfficial[]" multiple="multiple" data-placeholder="Select a language"
-                  style="width: 100%;">
-            @foreach ($languages as $language)
-              <option value="{{ $language->id }}">{{ $language->name }}</option>
-            @endforeach
-          </select>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Check me out
+          </label>
         </div>
-        <!-- /.form-group -->
       </div>
       <!-- /.col -->
     </div>

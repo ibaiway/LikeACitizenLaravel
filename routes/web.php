@@ -24,4 +24,5 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->middleware(['checkAd
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('countries', 'CountryController');
     Route::resource('languages', 'LanguageController');
+    Route::resource('cities', 'CityController');
 });

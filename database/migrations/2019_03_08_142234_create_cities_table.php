@@ -17,7 +17,7 @@ class CreateCitiesTable extends Migration
             $table->bigIncrements('id');
             $table->string("name");
             $table->string("headerImage");
-            $table->boolean("public");
+            $table->boolean("public")->default(false);
             $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')->references('id')
             ->on('countries')
