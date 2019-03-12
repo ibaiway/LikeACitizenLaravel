@@ -263,11 +263,11 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li class="{{ Route::is('admin.countries.index') ? 'active' : '' }}"><a href="{{ route('admin.countries.index') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
-        <li class="{{ Route::is('admin.cities.index') ? 'active' : '' }}"><a href="{{ route('admin.cities.index') }}"><i class="fa fa-link"></i> <span>Cities</span></a></li>
-        <li class="{{ Route::is('admin.apps.index') ? 'active' : '' }}"><a href="#"><i class="fa fa-link"></i> <span>Apps</span></a></li>
-        <li class="{{ Route::is('admin.languages.index') ? 'active' : '' }}"><a href="{{ route('admin.languages.index') }}"><i class="fa fa-link"></i> <span>Languages</span></a></li>
+        <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
+        <li class="{{ Route::is('admin.countries.index') ? 'active' : '' }}"><a href="{{ route('admin.countries.index') }}"><i class="fa fa-globe"></i> <span>Countries</span></a></li>
+        <li class="{{ Route::is('admin.cities.index') ? 'active' : '' }}"><a href="{{ route('admin.cities.index') }}"><i class="fa fa-building-o"></i> <span>Cities</span></a></li>
+        <li class="{{ Route::is('admin.apps.index') ? 'active' : '' }}"><a href="#"><i class="fa fa-mobile"></i> <span>Apps</span></a></li>
+        <li class="{{ Route::is('admin.languages.index') ? 'active' : '' }}"><a href="{{ route('admin.languages.index') }}"><i class="fa fa-language"></i> <span>Languages</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
