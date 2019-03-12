@@ -38,7 +38,17 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Language</label>
-          <select class="form-control select2" name="languages[]" multiple="multiple" data-placeholder="Select a language"
+          <select class="form-control select2" name="languagesOffical[]" multiple="multiple" data-placeholder="Select a language"
+                  style="width: 100%;">
+            @foreach ($languages as $language)
+              <option value="{{ $language->id }}">{{ $language->name }}</option>
+            @endforeach
+          </select>
+        </div>
+        <!-- /.form-group -->
+        <div class="form-group">
+          <label>Language</label>
+          <select class="form-control select2" name="languagesCoOfficial[]" multiple="multiple" data-placeholder="Select a language"
                   style="width: 100%;">
             @foreach ($languages as $language)
               <option value="{{ $language->id }}">{{ $language->name }}</option>

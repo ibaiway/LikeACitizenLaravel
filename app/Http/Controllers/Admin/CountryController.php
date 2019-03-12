@@ -16,7 +16,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return view('admin/countries');
+      $countries = Country::all();
+        return view('admin/countries', compact('countries'));
     }
 
     /**
@@ -43,7 +44,8 @@ class CountryController extends Controller
         $country->name = $request->input('name');
         $country->flag = $request->file('flag')->store('countries/flags');
         $country->save();
-        $country->languages()->attach($request->input('languages'));
+        $country->languages()->attach($request->input('languagesOffical'), ['official' => true]);
+        $country->languages()->attach($request->input('languagesCoOfficial'), ['coOfficial' => true]);
 
 
         return redirect()->route('admin.countries.show', [$country]);

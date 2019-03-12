@@ -14,6 +14,7 @@ class CreateCountryLanguageTable extends Migration
     public function up()
     {
         Schema::create('country_language', function (Blueprint $table) {
+            $table->unique(['country_id', 'language_id']);
             $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')->references('id')
             ->on('countries')
@@ -25,6 +26,8 @@ class CreateCountryLanguageTable extends Migration
             ->on('languages')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->boolean("official")->default(false);
+            $table->boolean("coOfficial")->default(false);
         });
     }
 

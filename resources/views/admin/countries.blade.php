@@ -25,6 +25,15 @@
           </tr>
           </thead>
           <tbody>
+            @foreach ($countries as $country)
+              <tr>
+                <td>{{ $country->name }}</td>
+                <td>FLAG HERE</td>
+                <td>{{ $country->cities()->count() }}</td>
+                <td> 4</td>
+                <td>X</td>
+              </tr>
+            @endforeach
           <tr>
             <td>Trident</td>
             <td>Internet

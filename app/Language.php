@@ -8,7 +8,7 @@ class Language extends Model
 {
   public function countries()
   {
-      return $this->belongsToMany('App\Country');
+      return $this->belongsToMany('App\Country')->withPivot('official', 'coOfficial');
   }
 
 }

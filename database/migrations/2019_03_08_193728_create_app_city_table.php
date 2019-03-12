@@ -22,7 +22,7 @@ class CreateAppCityTable extends Migration
 
           $table->unsignedBigInteger('city_id');
           $table->foreign('city_id')->references('id')
-          ->on('citys')
+          ->on('cities')
           ->onDelete('cascade')
           ->onUpdate('cascade');
         });
