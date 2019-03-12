@@ -38,17 +38,12 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Country</label>
-          <select class="form-control select2" name="countries[]" multiple="multiple" data-placeholder="Select a Country"
+          <select class="form-control select2" name="country" multiple="multiple" data-placeholder="Select a Country"
                   style="width: 100%;">
             @foreach ($countries as $country)
               <option value="{{ $country->id }}">{{ $country->name }}</option>
             @endforeach
           </select>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Check me out
-          </label>
         </div>
       </div>
       <!-- /.col -->

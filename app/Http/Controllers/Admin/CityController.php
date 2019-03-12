@@ -43,12 +43,13 @@ class CityController extends Controller
       $city = new City;
       $city->name = $request->input('name');
       $city->headerImage = $request->file('headerImage')->store('cities/headerImage');
-      $city->save();
       $country = Country::find($request->input('country'));
-      $post->comments()->save($comment);
+      $country->cities()->save($city);
+      $city->save();
 
 
-      return redirect()->route('admin.countries.show', [$country]);
+
+      return redirect()->route('admin.city.show', [$city]);
     }
 
     /**

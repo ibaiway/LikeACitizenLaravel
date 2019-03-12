@@ -28,8 +28,14 @@
             @foreach ($cities as $city)
               <tr>
                 <td>{{ $city->name }}</td>
-                <td>{{ $city->countries()->name }}</td>
-                <td>{{ $city->public }}</td>
+                <td>{{ $city->country->name }}</td>
+                <td>
+                  @if ($city->public == true)
+                      <span class="label label-success">Public</span>
+                  @else
+                      <span class="label label-warning">Private</span>
+                  @endif
+                </td>
                 <td> 4</td>
                 <td>X</td>
               </tr>
