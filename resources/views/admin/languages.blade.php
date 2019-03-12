@@ -18,20 +18,29 @@
           <thead>
           <tr>
             <th>Name</th>
-            <th>Countries</th>
+            <th>Countries Official</th>
+            <th>Countries Co-Offical</th>
             <th>PromoLink</th>
-            <th>Engine version</th>
             <th>CSS grade</th>
           </tr>
           </thead>
-          <tbody> 
+          <tbody>
+            @foreach ($languages as $language)
+              <tr>
+                <td>{{ $language->name }}</td>
+                <td>{{ $language->countries()->count() }}</td>
+                <td>{{ $language->countries()->with('official')->count() }}</td>
+                <td>{{ $language->promoLink }}</td>
+                <td>X</td>
+              </tr>
+            @endforeach
           </tbody>
           <tfoot>
           <tr>
             <th>Name</th>
-            <th>Countries</th>
+            <th>Countries Official</th>
+            <th>Countries Co-Offical</th>
             <th>PromoLink</th>
-            <th>Engine version</th>
             <th>CSS grade</th>
           </tr>
           </tfoot>
