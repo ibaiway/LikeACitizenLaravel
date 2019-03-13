@@ -28,8 +28,8 @@
           <tbody>
             @foreach ($cities as $city)
               <tr>
-                <td>{{ $city->name }}</td>
-                <td>{{ $city->country->name }}</td>
+                <td><a href="{{ route('admin.cities.show', ['id' => $city->id ]) }}">{{ $city->name }}</a></td>
+                <td><a href="{{ route('admin.countries.show', ['id' => $city->country->id ]) }}">{{ $city->country->name }}</a></td>
                 <td>
                   @if ($city->public == true)
                       <span class="label label-success">Public</span>

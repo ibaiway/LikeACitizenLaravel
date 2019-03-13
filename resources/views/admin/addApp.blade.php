@@ -70,6 +70,19 @@
           <textarea class="form-control" rows="4" name="offerText" placeholder="Enter Offer text"></textarea>
         </div>
         <!-- /.form-group -->
+        <div class="form-group">
+          <label>Cities</label>
+          <select class="form-control select2" name="cities[]" multiple="multiple" data-placeholder="Select cities"
+                  style="width: 100%;">
+            @foreach ($countries as $country)
+              <optgroup label="{{ $country->name }}">
+                @foreach ($country->cities as $city)
+                  <option value="{{ $city->id }}">{{ $city->name }}</option>
+                @endforeach
+              </optgroup>
+            @endforeach
+          </select>
+        </div>
       </div>
       <!-- /.col -->
     </div>

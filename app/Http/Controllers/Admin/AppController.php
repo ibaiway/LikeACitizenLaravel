@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\App;
 use App\Category;
+use App\Country;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -28,8 +29,9 @@ class AppController extends Controller
     public function create()
     {
       $categories = Category::all();
+      $countries = Country::all();
 
-        return view('admin/addApp', compact('categories'));
+        return view('admin/addApp', compact('categories','countries'));
     }
 
     /**
@@ -49,6 +51,7 @@ class AppController extends Controller
       $app->offerText = $request->input('offerText');
       $app->save();
       $app->categories()->attach($request->input('categories'));
+      $app->cities()->attach($request->input('cities'));
 
 
       return redirect()->route('admin.apps.show', [$app]);

@@ -49,7 +49,7 @@ class CityController extends Controller
 
 
 
-      return redirect()->route('admin.city.show', [$city]);
+      return redirect()->route('admin.cities.show', [$city]);
     }
 
     /**
