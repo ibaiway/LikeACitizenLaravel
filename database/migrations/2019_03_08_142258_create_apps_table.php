@@ -17,10 +17,10 @@ class CreateAppsTable extends Migration
             $table->bigIncrements('id');
             $table->string("name");
             $table->string("image");
-            $table->string("appleLink");
-            $table->string("googleLink");
-            $table->string("offerCode");
-            $table->string("offerText");
+            $table->string("appleLink")->nullable();
+            $table->string("googleLink")->nullable();
+            $table->string("offerCode")->nullable();
+            $table->string("offerText")->nullable();
             $table->timestamps();
         });
     }

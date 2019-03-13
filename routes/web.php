@@ -25,4 +25,6 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->middleware(['checkAd
     Route::resource('countries', 'CountryController');
     Route::resource('languages', 'LanguageController');
     Route::resource('cities', 'CityController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('apps', 'AppController');
 });

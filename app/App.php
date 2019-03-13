@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class App extends Model
 {
-  public function citys()
+  public function cities()
   {
       return $this->belongsToMany('App\City');
   }
-  public function categorys()
+  public function categories()
       {
           return $this->belongsToMany('App\Category');
       }

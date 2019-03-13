@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\App;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AppController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class AppController extends Controller
      */
     public function index()
     {
-      $apps = App::all();
-        return view('admin/apps', compact('apps'));
+      $categories = Category::all();
+        return view('admin/categories', compact('categories'));
     }
 
     /**
@@ -27,9 +26,7 @@ class AppController extends Controller
      */
     public function create()
     {
-      $categories = Category::all();
-
-        return view('admin/addApp', compact('categories'));
+        return view('admin/addCategory');
     }
 
     /**
@@ -40,27 +37,21 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-      $app = new App;
-      $app->name = $request->input('name');
-      $app->image = $request->file('image')->store('apps/images');
-      $app->appleLink = $request->input('appleLink');
-      $app->googleLink = $request->input('googleLink');
-      $app->offerCode = $request->input('offerCode');
-      $app->offerText = $request->input('offerText');
-      $app->save();
-      $app->categories()->attach($request->input('categories'));
+      $category = new Category;
+      $category->name = $request->input('name');
+      $category->image = $request->file('image')->store('categories');
+      $category->save();
 
-
-      return redirect()->route('admin.apps.show', [$app]);
+      return redirect()->route('admin.categories.show', [$category]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\App  $app
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(App $app)
+    public function show($id)
     {
         //
     }
@@ -68,10 +59,10 @@ class AppController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\App  $app
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(App $app)
+    public function edit($id)
     {
         //
     }
@@ -80,10 +71,10 @@ class AppController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\App  $app
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, App $app)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -91,10 +82,10 @@ class AppController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\App  $app
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(App $app)
+    public function destroy($id)
     {
         //
     }
