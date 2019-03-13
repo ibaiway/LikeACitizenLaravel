@@ -17,7 +17,7 @@
       </div>
       <div class="box-footer no-padding">
         <ul class="nav nav-stacked">
-          <li><a href="#">Countries Official <span class="pull-right badge bg-blue">{{ $language->countries()->count() }}</span></a></li>
+          <li><a href="#">Countries <span class="pull-right badge bg-blue">{{ $language->countries()->count() }}</span></a></li>
           <li><a href="#">Countries Official <span class="pull-right badge bg-aqua">{{ $language->countries()->whereOfficial(true)->count() }}</span></a></li>
           <li><a href="#">Countries Co-Offical <span class="pull-right badge bg-green">{{ $language->countries()->whereCoofficial(true)->count() }}</span></a></li>
           <li><a href="#">PromoLink <span class="pull-right ">{{ $language->promoLink }}</span></a></li>

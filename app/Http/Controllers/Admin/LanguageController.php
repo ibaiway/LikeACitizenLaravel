@@ -39,6 +39,7 @@ class LanguageController extends Controller
     {
         $language = new Language;
         $language->name = $request->input('name');
+        $language->originalName = $request->input('originalName');
         $language->promoLink = $request->input('promoLink');
         $language->save();
 
