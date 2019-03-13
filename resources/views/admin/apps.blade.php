@@ -21,8 +21,7 @@
             <th>Name</th>
             <th>Cities</th>
             <th>Platforms </th>
-            <th>something</th>
-            <th>something</th>
+            <th>Categories</th>
           </tr>
           </thead>
           <tbody>
@@ -38,8 +37,11 @@
                       <span class="label label-success">Android</span>
                   @endisset
                 </td>
-                <td>nothing</td>
-                <td>nothing</td>
+                <td>
+                @foreach ($app->categories as $category)
+                <a href="{{ route('admin.categories.show', ['id' => $category->id ]) }}"><span class="label label-primary">{{  $category->name }}</span></a>
+                @endforeach
+                </td>
               </tr>
             @endforeach
           </tbody>
@@ -48,8 +50,7 @@
             <th>Name</th>
             <th>Cities</th>
             <th>Platforms </th>
-            <th>something</th>
-            <th>something</th>
+            <th>Categories</th>
           </tr>
           </tfoot>
         </table>
