@@ -2,6 +2,7 @@
 @section('title', 'Countries')
 @section('css')
 <link rel="stylesheet" href="{{asset('adminlte/components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('adminlte/components/datatables-extra/buttons.dataTables.min.css')}}">
 
 @endsection
 @section('content')
@@ -57,10 +58,33 @@
 @section('script')
 <script src="{{asset('adminlte/components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('adminlte/components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('adminlte/components/datatables-extra/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('adminlte/components/datatables-extra/buttons.html5.min.js')}}"></script>
+<script src="{{asset('adminlte/components/datatables-extra/pdfmake.min.js')}}"></script>
+<script src="{{asset('adminlte/components/datatables-extra/vfs_fonts.js')}}"></script>
+
 <script>
-  $(function () {
-    $('#countryTable').DataTable()
-  })
+$(document).ready(function() {
+  $('#countryTable').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'pageLength',
+              {
+                  extend: 'pdf',
+                  messageTop: 'The information on this document is private and owned by LikeACitizen.',
+                  messageBottom: 'The information on this document is private and owned by LikeACitizen.',
+                  filename:document.title+' {{now()}}'
+              },
+              {
+                text: 'Add new',
+                action: function ( e, dt, node, config ) {
+                  window.location.href = "{{ route('admin.countries.create') }}";
+;
+                }
+            },
+          ]
+      } );
+})
 </script>
 
 @endsection

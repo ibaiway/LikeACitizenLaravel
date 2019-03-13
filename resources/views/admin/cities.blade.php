@@ -2,6 +2,7 @@
 @section('title', 'Cities')
 @section('css')
 <link rel="stylesheet" href="{{asset('adminlte/components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('adminlte/components/datatables-extra/buttons.dataTables.min.css')}}">
 
 @endsection
 @section('content')
@@ -14,7 +15,7 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-        <table id="countryTable" class="table table-bordered table-striped">
+        <table id="citiesTable" class="table table-bordered table-striped">
           <thead>
           <tr>
             <th>Name</th>
@@ -63,10 +64,33 @@
 @section('script')
 <script src="{{asset('adminlte/components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('adminlte/components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('adminlte/components/datatables-extra/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('adminlte/components/datatables-extra/buttons.html5.min.js')}}"></script>
+<script src="{{asset('adminlte/components/datatables-extra/pdfmake.min.js')}}"></script>
+<script src="{{asset('adminlte/components/datatables-extra/vfs_fonts.js')}}"></script>
+
 <script>
-  $(function () {
-    $('#countryTable').DataTable()
-  })
+$(document).ready(function() {
+  $('#citiesTable').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'pageLength',
+              {
+                  extend: 'pdf',
+                  messageTop: 'The information on this document is private and owned by LikeACitizen.',
+                  messageBottom: 'The information on this document is private and owned by LikeACitizen.',
+                  filename:document.title+' {{now()}}'
+              },
+              {
+                text: 'Add new',
+                action: function ( e, dt, node, config ) {
+                  window.location.href = "{{ route('admin.cities.create') }}";
+;
+                }
+            },
+          ]
+      } );
+})
 </script>
 
 @endsection

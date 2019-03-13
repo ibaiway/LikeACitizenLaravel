@@ -22,7 +22,7 @@ class CreateAppCategoryTable extends Migration
 
           $table->unsignedBigInteger('category_id');
           $table->foreign('category_id')->references('id')
-          ->on('categorys')
+          ->on('categories')
           ->onDelete('cascade')
           ->onUpdate('cascade');
         });
