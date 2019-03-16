@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', '{{$language->name}}')
+@section('title', $language->name)
 
 @section('content')
 <div class="row">
